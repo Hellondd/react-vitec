@@ -1,0 +1,363 @@
+/* ---------- каркас ---------- */
+
+.app {
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.page {
+  padding-top: 32px;
+  padding-bottom: 48px;
+}
+
+.lead {
+  margin-bottom: 24px;
+  color: var(--muted);
+}
+
+/* ---------- шапка ---------- */
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 56px;
+}
+
+.brand {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.brand:hover {
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  gap: 4px;
+}
+
+.nav a {
+  padding: 6px 12px;
+  border-radius: var(--radius-control);
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.nav a:hover {
+  background: var(--bg);
+  text-decoration: none;
+}
+
+/* NavLink сам добавляет класс active на текущую ссылку */
+.nav a.active {
+  background: #e8efff;
+  color: var(--primary);
+}
+
+/* ---------- кнопки ---------- */
+
+.btn {
+  border: none;
+  border-radius: var(--radius-control);
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.btn--md {
+  padding: 10px 16px;
+}
+
+.btn--sm {
+  padding: 6px 12px;
+}
+
+.btn--primary {
+  background: var(--primary);
+}
+.btn--primary:not(:disabled):hover {
+  background: var(--primary-hover);
+}
+
+.btn--secondary {
+  background: var(--secondary);
+}
+.btn--secondary:not(:disabled):hover {
+  background: var(--secondary-hover);
+}
+
+.btn--danger {
+  background: var(--danger);
+}
+.btn--danger:not(:disabled):hover {
+  background: var(--danger-hover);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---------- карточка ---------- */
+
+.card {
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+}
+
+.card__title {
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* ---------- главная ---------- */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.stat__value {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* ---------- форма ---------- */
+
+.task-form {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+}
+
+.field {
+  display: grid;
+  gap: 4px;
+}
+
+.field label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 8px 12px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--control-border);
+  border-radius: var(--radius-control);
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.field input[aria-invalid='true'] {
+  border-color: var(--danger);
+}
+
+.field__error {
+  margin: 0;
+  color: var(--danger);
+  font-size: 0.875rem;
+}
+
+/* ---------- фильтр ---------- */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.chip {
+  padding: 6px 14px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--control-border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.chip:hover {
+  background: var(--bg);
+}
+
+.chip--active,
+.chip--active:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+/* ---------- список задач ---------- */
+
+.task-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  padding: 12px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+}
+
+.task__check {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.task__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  color: var(--text);
+}
+
+.task__body:hover {
+  text-decoration: none;
+}
+
+.task__body:hover .task__title {
+  text-decoration: underline;
+}
+
+.task__title {
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.task__desc {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 0.875rem;
+  overflow-wrap: anywhere;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.task--done .task__title {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.empty {
+  margin: 0;
+  padding: 32px 16px;
+  color: var(--muted);
+  text-align: center;
+  border: 1px dashed var(--control-border);
+  border-radius: var(--radius-card);
+}
+
+/* ---------- детали задачи ---------- */
+
+.back {
+  margin-bottom: 16px;
+}
+
+.details__title {
+  margin-bottom: 12px;
+  font-size: 1.5rem;
+  overflow-wrap: anywhere;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  background: #dbeafe;
+  color: #1e40af;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.badge--done {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.details__desc {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.details__desc--empty {
+  color: var(--muted);
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+/* ---------- 404 ---------- */
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+}
+
+.not-found__code {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+}
